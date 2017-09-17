@@ -30,6 +30,7 @@ async function scrapeGoogleResult(keyword, domain, numberOfPages) {
 
   const browser = await puppeteer.launch({
     headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   const page = await browser.newPage();
   page.setUserAgent(randomUserAgents[parseInt(random(0, 8))]);
